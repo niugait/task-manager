@@ -1,6 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import { BootstrapVue } from 'bootstrap-vue'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faCheck, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import VueSweetalert2 from 'vue-sweetalert2'
+
+library.add(faCheck, faPlus)
 
 // Import Bootstrap an BootstrapVue CSS files (order is important)
 import 'bootstrap/dist/css/bootstrap.css'
@@ -9,6 +15,9 @@ import '../sass/app.scss'
 import 'sweetalert2/dist/sweetalert2.min.css'
 import TMTaskForm from "./components/TMTaskForm";
 import TMInitialMenu from "./components/TMInitialMenu";
+import TMTaskTypeForm from "./components/TMTaskTypeForm"
+import TMTaskList from "./components/TMTaskList"
+import TMTaskTypeList from "./components/TMTaskTypeList";
 
 // Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue)
@@ -42,13 +51,38 @@ const router = new VueRouter({
     routes: [
         {
             path: '/',
-            name: 'Início',
+            name: 'default',
             component: TMInitialMenu,
         },
         {
+            path: '/tasks-list',
+            name: 'task-list',
+            component: TMTaskList,
+        },
+        {
             path: '/register',
-            name: 'Cadastro',
+            name: 'register',
             component: TMTaskForm,
+        },
+        {
+            path: '/task-type-list',
+            name: 'task-type-list',
+            component: TMTaskTypeList,
+        },
+        {
+            path: '/edit-task/:id',
+            name: 'edit-task',
+            component: TMTaskForm,
+        },
+        {
+            path: '/register-type',
+            name: 'register-task-type',
+            component: TMTaskTypeForm,
+        },
+        {
+            path: '/edit-task-type/:id',
+            name: 'edit-task-type',
+            component: TMTaskTypeForm,
         },
     ],
 });

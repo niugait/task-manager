@@ -1,5 +1,5 @@
 <template>
-    <div class="initial-menu">
+    <div class="initial-menu col-lg-6">
         <b-card-group deck>
             <b-card no-body header="Gerenciador de Tarefas" class="card-wrapper">
                 <b-row no-gutters>
@@ -21,9 +21,11 @@
 
                         <b-list-group flush class="mb-4">
                             <b-list-group-item>
-                                <router-link to="register">Listar tarefas</router-link>
+                                <router-link to="tasks-list">Listar tarefas</router-link>
                             </b-list-group-item>
-                            <b-list-group-item href="#">Cadastrar nova tarefa</b-list-group-item>
+                            <b-list-group-item>
+                                <router-link to="register">Cadastrar tarefas</router-link>
+                            </b-list-group-item>
                         </b-list-group>
                     </b-col>
                 </b-row>
@@ -39,7 +41,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.card-wrapper {
-    width: 50rem;
-}
+
 </style>
