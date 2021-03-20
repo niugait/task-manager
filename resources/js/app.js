@@ -6,12 +6,14 @@ import { BootstrapVue } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import '../sass/app.scss'
+import 'sweetalert2/dist/sweetalert2.min.css'
 import TMTaskForm from "./components/TMTaskForm";
 import TMInitialMenu from "./components/TMInitialMenu";
 
 // Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue)
 Vue.use(VueRouter)
+Vue.use(VueSweetalert2)
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -33,6 +35,7 @@ window.Vue = require('vue').default;
 
 const files = require.context('./', true, /\.vue$/i)
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 const router = new VueRouter({
     mode: 'history',
