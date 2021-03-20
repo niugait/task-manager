@@ -34,6 +34,13 @@ class TaskController extends Controller
         $task->save();
     }
 
+    public function update(Request $request, $id)
+    {
+        $task = Task::query()->where('id', $id)->firstOrFail();
+        $task->update($request->only(['description', 'due', 'task_types_id']));
+        $task->save();
+    }
+
     /**
      * @param $id
      * @throws \Exception
