@@ -33,3 +33,7 @@ Route::get(TASK_TYPES_ID, [TaskTypeController::class, 'show']);
 Route::put(TASK_TYPES_ID, [TaskTypeController::class, 'update']);
 Route::post('task-types', [TaskTypeController::class, 'store']);
 Route::delete(TASK_TYPES_ID, [TaskTypeController::class, 'delete']);
+
+Route::get('{any}', function () {
+    return view('welcome');
+})->where('any', '.*');
