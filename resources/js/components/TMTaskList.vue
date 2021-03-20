@@ -17,7 +17,7 @@
             ></b-form-select>
             <b-button :disabled="!filter" @click="filter = ''">Limpar filtro</b-button>
             <b-button class="mb-4 float-right" type="submit" variant="primary" @click="$router.push({ name: 'register'})"><font-awesome-icon icon="plus"/> Criar Tarefa</b-button>
-            <b-button class="mb-4 float-right" type="submit" variant="outline-primary" @click="$router.push({ name: 'task-type-list'})">Tipos de tarefas</b-button>
+            <b-button class="mb-4 mr-4 float-right" type="submit" variant="outline-primary" @click="$router.push({ name: 'task-type-list'})">Tipos de tarefas</b-button>
         </b-form-group>
         <b-table
             striped
